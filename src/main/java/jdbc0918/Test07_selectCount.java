@@ -28,8 +28,15 @@ public class Test07_selectCount {
 			StringBuilder sql = new StringBuilder();
 			sql.append(" SELECT COUNT(*) AS CNT FROM SUNGJUK ");
 			
+			pstmt = conn.prepareStatement(sql.toString());
 			
+			rs = pstmt.executeQuery(); // select문 실행
 			
+			// cursor : 행을 가리키는 값. 이동할 수 있다
+			if(rs.next())  // cursor가 있는지?
+				System.out.println("자료 있음");
+			else
+				System.out.println("자료 없음");
 		
 						
 		} catch (Exception e) {
